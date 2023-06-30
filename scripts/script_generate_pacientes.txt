@@ -1,0 +1,51 @@
+
+Site para gerar json de pacientes para teste: https://json-generator.com/#
+
+
+##############################################################################
+
+['{{repeat(1)}}',
+{"_id":
+    {
+    $oid:'{{objectId()}}'
+    },
+    nome:'{{firstName()}} {{surname()}}',
+    endereco:'{{integer(100, 999)}} {{street()}}, {{city()}}, {{state()}}, {{integer(100, 10000)}}',
+    
+      rg: function () {
+    var minm = 100000000;
+    var maxm = 999999999;
+    return Math.floor(Math
+    .random() * (maxm - minm + 1)) + minm;},
+    
+      cpf: function () {
+    var minm = 100000000000;
+    var maxm = 999999999999;
+    return Math.floor(Math
+    .random() * (maxm - minm + 1)) + minm;},
+    
+      telefone:'{{phone()}}',
+    email:'{{email([random])}}',
+    data_nascimento:'{{date(new Date(1923, 0, 1), new Date(), "YYYY-MM-dd")}}',
+    responsavel:'{{firstName()}} {{surname()}}',
+    medico_solicitante:'{{firstName()}} {{surname()}}',
+    
+    crm: function () {
+    var minm = 100000;
+    var maxm = 999999;
+    return Math.floor(Math
+    .random() * (maxm - minm + 1)) + minm;},
+  	
+    ocupacao: '{{random("Ortopedista", "Pediatra", "Cardiologista")}}',
+    cid: '{{lorem([1])}}',
+    pagamento:'{{random("Plano", "Particular")}}',
+    empresa:'{{random("Amil", "Bradesco", "Unimed")}}',
+    crm: function () {
+    var minm = 1000000;
+    var maxm = 9999999;
+    return Math.floor(Math
+    .random() * (maxm - minm + 1)) + minm;
+},
+    plano:'{{random("Bradesco plus", "Amil gold", "Unimed silver")}}'
+}
+]
